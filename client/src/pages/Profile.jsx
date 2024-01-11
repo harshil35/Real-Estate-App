@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useRef } from 'react';
 import {getStorage, uploadBytesResumable, ref, getDownloadURL} from 'firebase/storage';
 import { app } from '../firebase';
-import { updateUserStart, updateUserSuccess, updateUserFailure } from '../redux/user/userSlice';
+import { updateUserStart, updateUserSuccess, updateUserFailure, deleteUserStart, deleteUserSuccess, deleteUserFailure } from '../redux/user/userSlice';
 
 
 export default function Profile() {
@@ -22,7 +22,7 @@ export default function Profile() {
   request.resource.size < 2 * 1024 * 1024 &&
   request.resource.contentType.matches('image/.*') 
   */
-  console.log(error);
+
   useEffect(() => {
     if(file){
       handleFileUpload(file);
@@ -73,7 +73,24 @@ export default function Profile() {
     } catch (error) {
       dispatch(updateUserFailure(error.message));
     }
-  }
+  };
+
+  const handleDeleteUser = async () => {
+    try {
+      dispatch(deleteUserStart());
+      const res = await fetch(`/api/user/delete/${currentUser._id}`, {
+        method: 'DELETE',
+      });
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(deleteUserFailure(data.message));
+        return;
+      }
+      dispatch(deleteUserSuccess(data));
+    } catch (error) {
+      dispatch(deleteUserFailure(error.message));
+    }
+  };
 
   return (
     <div className='p-3 max-w-lg mx-auto'>
@@ -94,7 +111,7 @@ export default function Profile() {
         <button className='bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80' disabled={loading}>Update</button>
       </form>
       <div className='flex justify-between mt-5'>
-        <span className='text-red-700 cursor-pointer'>Delete account</span>
+        <span onClick={handleDeleteUser} className='text-red-700 cursor-pointer'>Delete account</span>
         <span className='text-red-700 cursor-pointer'>Sign out</span>
       </div>
 

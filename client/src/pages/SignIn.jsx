@@ -20,8 +20,8 @@ export default function SignIn() {
   };
 
   const handleSubmit = async (e) => {
-   try {
-      e.preventDefault();
+    e.preventDefault();
+    try {
       dispatch(signInStart());
       const res = await fetch ('/api/auth/signin', {
         method: 'POST',
