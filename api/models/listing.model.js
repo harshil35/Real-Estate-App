@@ -9,7 +9,7 @@ const listingSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    description:{
+    address:{
         type: String,
         required: true,
     },
