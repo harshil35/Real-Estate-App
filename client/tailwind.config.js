@@ -5,7 +5,20 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundColor: {
+        'whitish': '#f6f4f3',
+        'whitecream': '#d1c8c1',
+        'cream': '#86654b',
+        'brownish': '#31241e'
+      },
+      textColor: {
+        'whitish': '#f6f4f3',
+        'whitecream': '#d1c8c1',
+        'cream': '#86654b',
+        'brownish': '#31241e'
+      },
+    },
   },
   plugins: [],
 }
