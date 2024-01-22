@@ -51,7 +51,7 @@ export default function Header() {
                     { currentUser ? (
                         <img className='rounded-full h-7 w-7 object-cover' src={currentUser.avatar} alt="profile" />
                     ):(
-                        <li className='sm:inline text-cream hover:underline'>Sign in</li>
+                        <li className='sm:inline text-cream hover:underline font-semibold'>Sign in</li>
                     )}
                 </Link>
                 
