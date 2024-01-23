@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import ListingItem from '../components/ListingItem';
 
 export default function Search() {
     const [sidebardata, setSidebardata] = useState({
@@ -132,8 +133,19 @@ export default function Search() {
                 <button className='bg-brownish text-whitish p-3 rounded-lg uppercase hover:opacity-80'>Search</button>
             </form>
         </div>
-        <div className=''>
+        <div className='flex-1'>
             <h1 className='text-3xl font-semibold text-cream border-b p-3 mt-5'>Listing results:</h1>
+            <div className='p-7 flex flex-wrap gap-4'>
+                {!loading && listings.length === 0 && (
+                    <p className='text-xl text-cream '>No listing found!</p>
+                )}
+                {loading && (
+                    <p className='text-xl text-cream text-center w-full'>Loading...</p>
+                )}
+                {!loading && listings && listings.map((listing) => (
+                    <ListingItem key={listing._id} listing={listing}/>
+                ))}
+            </div>
         </div>
     </div>
   )
