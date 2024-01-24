@@ -3,10 +3,14 @@ import { Link } from 'react-router-dom'
 import { MdLocationOn } from 'react-icons/md';
 
 export default function ListingItem({listing}) {
+    const isValidImageUrl = (url) => {
+        const validExtensions = ['.jpg', '.jpeg', '.png'];
+        return url && validExtensions.some(ext => url.toLowerCase().includes(ext));
+    }
   return (
     <div className='bg-whitecream shadow-md sm:shadow-lg transition-shadow overflow-hidden rounded-lg w-full sm:w-[330px]'>
         <Link to={`/listing/${listing._id}`}>
-            <img src={listing.imageUrls[0]} alt="listing cover" className='h-[320px] sm:h-[220px] w-full object-cover hover:scale-105 transition-scale duration-300'/>
+        <img src={isValidImageUrl(listing.imageUrls[0]) ? listing.imageUrls[0] : "https://www.gssprojects.in/wp-content/uploads/2022/09/real-estate-company-in-Mysore.jpg"} alt="listing cover" className="h-[320px] sm:h-[220px] w-full object-cover hover:scale-105 transition-scale duration-300"/>
         </Link>
         <div className='p-3 flex flex-col gap-2 w-full'>
             <p className='truncate text-lg font-semibold text-brownish'>{listing.name}</p>
