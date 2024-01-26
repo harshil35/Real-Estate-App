@@ -1,8 +1,20 @@
-# React + Vite
+Real Estate App
+This project is a comprehensive real estate application built on the MongoDB, Express.js, React.js, and Node.js stack. Below is a guide to help you understand the features and functionalities implemented in this project.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Project Features
+1. Advanced Authentication
+Implemented secure user authentication using JWT (JSON Web Tokens), Firebase, and Google OAuth.
+Ensured a seamless and protected user access experience.
+2. Real-world CRUD Operations
+Created robust CRUD operations for managing property listings.
+Utilized MongoDB for efficient storage and retrieval of property data.
+3. User-friendly Features
+Enhanced the user experience with user-friendly features.
+Implemented image upload functionality to showcase property images.
+Provided an intuitive property listing management system.
+4. Advanced Search Functionality
+Implemented cutting-edge search features to assist users in finding specific properties.
+Enhanced the search functionality to cater to diverse user preferences.
+5. Deployment Made Easy
+Provided a seamless deployment process for the MERN real estate app.
+Utilized the 'render' platform for a hassle-free and cost-effective deployment.
