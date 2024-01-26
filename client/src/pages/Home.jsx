@@ -56,10 +56,9 @@ export default function Home() {
           place with ease
         </h1>
         <div className='text-cream text-xs sm:text-sm'>
-          Sahand Estate is the best place to find your next perfect place to
-          live.
+           Discover your ideal home at Mercury Estate – the premier destination for your next perfect living space.
           <br />
-          We have a wide range of properties for you to choose from.
+           Explore an extensive selection of properties curated just for you.
         </div>
         <Link
           to={'/search'}
